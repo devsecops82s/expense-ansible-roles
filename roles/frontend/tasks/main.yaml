@@ -35,11 +35,6 @@
       src: expense.conf.j2
       dest: /etc/nginx/default.d/expense.conf
       
-    handlers:
-    - name: Restart nginx
-      ansible.builtin.service:
-        name: nginx
-        state: restarted
-
+    
 
   
