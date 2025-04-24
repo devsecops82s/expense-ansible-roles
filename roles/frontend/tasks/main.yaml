@@ -8,27 +8,31 @@
       name: nginx
       state: started
       enabled: yes
+  
+  - name: including from common roles
+    include_role:
+      name: common
 
-  - name: delete html directory
-    ansible.builtin.file:
-      path: /usr/share/nginx/html/
-      state: absent
+  # - name: delete html directory
+  #   ansible.builtin.file:
+  #     path: /usr/share/nginx/html/
+  #     state: absent
 
-  - name: create html directory
-    ansible.builtin.file:
-      path: /usr/share/nginx/html
-      state: directory
+  # - name: create html directory
+  #   ansible.builtin.file:
+  #     path: /usr/share/nginx/html
+  #     state: directory
 
-  - name: Download frontend code
-    ansible.builtin.get_url:
-      url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-      dest: /tmp/frontend.zip
+  # - name: Download frontend code
+  #   ansible.builtin.get_url:
+  #     url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+  #     dest: /tmp/frontend.zip
 
-  - name: unzip frontend code
-    ansible.builtin.unarchive:
-      src: /tmp/frontend.zip
-      dest: /usr/share/nginx/html
-      remote_src: yes
+  # - name: unzip frontend code
+  #   ansible.builtin.unarchive:
+  #     src: /tmp/frontend.zip
+  #     dest: /usr/share/nginx/html
+  #     remote_src: yes
 
   - name: Copy expense config
     ansible.builtin.template:
