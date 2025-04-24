@@ -25,7 +25,7 @@
     ansible.builtin.user:
       name: expense
 
-  - namw: including from common roles
+  - name: including from common roles
     include_role:
       name: common
       tasks_from: main
