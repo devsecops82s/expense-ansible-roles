@@ -1,11 +1,3 @@
-  - name: install MySQL libraries
-    ansible.builtin.pip:
-      name: "{{ item }}"
-      executable: pip3.9
-    loop:
-    - PyMySQL
-    - cryptography
-
   - name: disable current nodejs
     ansible.builtin.command: dnf module disable nodejs -y
 
